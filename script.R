@@ -17,3 +17,10 @@ plot_layout(sl, plate_name="plate1", fill="sample_type")
 #xPonent 3.x without mapping
 setup_templates("LENA")
 bl<-read.experiment("LENA")
+
+#
+bl<-read.experiment("subjectSeraYale")
+sl<-slummarize(bl)
+#plot to show which standard well fails
+ggplot2::ggplot(msl.ss, ggplot2::aes(shape=well), pch=well)+ggplot2::scale_x_log10()+ggplot2::scale_y_log10()+ggplot2::facet_wrap(~analyte)+ggplot2::geom_point(ggplot2::aes(x=concentration, y=mfi, color=well))+ggplot2::scale_shape_manual(values=1:22)
+
